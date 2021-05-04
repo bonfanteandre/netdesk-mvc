@@ -1,8 +1,10 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using NetDesk.Business.Interfaces.Repositories;
 using NetDesk.Business.Interfaces.Services;
+using NetDesk.Business.Interfaces.UnitOfWork;
 using NetDesk.Business.Services;
 using NetDesk.Data.Repositories;
+using NetDesk.Data.UnitOfWork;
 
 namespace NetDesk.App.Configurations
 {
@@ -12,6 +14,7 @@ namespace NetDesk.App.Configurations
         {
             AddRepositories(services);
             AddServices(services);
+            AddUnitOfWork(services);
         }
 
         private static void AddRepositories(IServiceCollection services)
@@ -22,6 +25,11 @@ namespace NetDesk.App.Configurations
         private static void AddServices(IServiceCollection services)
         {
             services.AddScoped<IClientsService, ClientsService>();
+        }
+
+        private static void AddUnitOfWork(IServiceCollection services)
+        {
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
         }
     }
 }

@@ -20,8 +20,8 @@ namespace NetDesk.App
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddAutoMapper(typeof(Startup));
-            services.AddDbContext(Configuration);
             services.AddDependencyInjection();
+            services.AddDbContext(Configuration);
             services.AddControllersWithViews();
         }
 

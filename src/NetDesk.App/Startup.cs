@@ -21,6 +21,7 @@ namespace NetDesk.App
         {
             services.AddAutoMapper(typeof(Startup));
             services.AddDbContext(Configuration);
+            services.AddDependencyInjection();
             services.AddControllersWithViews();
         }
 
